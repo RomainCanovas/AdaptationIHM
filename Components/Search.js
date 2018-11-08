@@ -7,17 +7,19 @@ import VideoItem from './VideoItem'
 
 class Search extends React.Component {
 
-    _displayDetailForFilm = (idFilm) => {
-        if (idFilm === 1)
-            this.props.navigation.navigate("FlipComponent")
-        else if (idFilm === 2)
-            this.props.navigation.navigate("HandPassingComponent")
-        else if (idFilm === 3)
-            this.props.navigation.navigate("ShakeComponent")
+    _displayDetailForVideo = (id) => {
+        if (id === 1)
+            this.props.navigation.navigate("FlipComponent");
+        else if (id === 2)
+            this.props.navigation.navigate("HandPassingComponent");
+        else if (id === 3)
+            this.props.navigation.navigate("ShakeComponent");
         else
-            this.props.navigation.navigate("VoiceComponent")
+            this.props.navigation.navigate("VoiceComponent");
+    };
 
-    }
+    // Components/Search.js
+/*..............*/
 
     render() {
         return (
@@ -25,7 +27,7 @@ class Search extends React.Component {
                 <FlatList
                     data={films}
                     keyExtractor={(item) => item.id.toString()}
-                    renderItem={({item}) => <VideoItem film={item} displayDetailForFilm={this._displayDetailForFilm}/>}
+                    renderItem={({item}) => <VideoItem film={item} displayDetailForFilm={this._displayDetailForVideo}/>}
                 />
             </View>
         )
@@ -43,14 +45,6 @@ const styles = StyleSheet.create({
         bottom: 0,
         right: 0,
     },
-    textinput: {
-        marginLeft: 5,
-        marginRight: 5,
-        height: 50,
-        borderColor: '#000000',
-        borderWidth: 1,
-        paddingLeft: 5
-    }
-})
+});
 
 export default Search

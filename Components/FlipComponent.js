@@ -16,21 +16,17 @@ class FlipComponent extends React.Component {
             this.handlePlayAndPause()
         };
     }
-
     componentDidMount() {
         Proximity.addListener(this._proximityListener);
     }
-
     componentWillUnmount() {
         Proximity.removeListener(this._proximityListener);
     }
-
     handlePlayAndPause = () => {
         this.setState(prevState => ({
             shouldPlay: !prevState.shouldPlay
         }));
     };
-
     render() {
         return (
             <View style={styles.main_container}>

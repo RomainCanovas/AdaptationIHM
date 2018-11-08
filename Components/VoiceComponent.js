@@ -35,6 +35,23 @@ class VoiceComponent extends React.Component {
         Voice.destroy().then(Voice.removeAllListeners);
     }
 
+    async _startRecognition(e) {
+        this.setState({
+            recognized: '',
+            started: '',
+            results: [],
+        });
+        try {
+            await Voice.start('en-US');
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    setTime(params) {
+        this.setState({currentTime: params.currentTime, maxTime: params.seekableDuration});
+    }
+
     onSpeechResults(e) {
         this.setState({
             results: e.value,
@@ -93,23 +110,6 @@ class VoiceComponent extends React.Component {
             else
                 this.player.seek(this.state.currentTime + 10);
         }
-    }
-
-    async _startRecognition(e) {
-        this.setState({
-            recognized: '',
-            started: '',
-            results: [],
-        });
-        try {
-            await Voice.start('en-US');
-        } catch (e) {
-            console.error(e);
-        }
-    }
-
-    setTime(params) {
-        this.setState({currentTime: params.currentTime, maxTime: params.seekableDuration});
     }
 
     render() {

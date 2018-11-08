@@ -1,3 +1,11 @@
 rootProject.name = 'AdaptationIHM'
+include ':react-native-video'
+project(':react-native-video').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android-exoplayer')
+include ':react-native-proximity'
+project(':react-native-proximity').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-proximity/android')
+include ':react-native-voice'
+project(':react-native-voice').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-voice/android')
+include ':react-native-shake-event'
+project(':react-native-shake-event').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-shake-event/android')
 
 include ':app'
